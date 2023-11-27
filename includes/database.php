@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', 'root', '');
+$db = mysqli_connect('localhost', 'root', 'root', 'uptask_mvc');
 
 
 if (!$db) {
