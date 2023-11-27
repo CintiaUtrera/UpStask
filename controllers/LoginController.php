@@ -50,8 +50,8 @@ class LoginController {
         }
 
         // Render a la vista
-        $router->render('auth/', [
-
+        $router->render('auth/olvide', [
+            'titulo' => 'Olvide mi Password'
         ]);
     }
 
