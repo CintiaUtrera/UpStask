@@ -70,11 +70,9 @@ class LoginController {
     }
 
     public static function mensaje(Router $router){
-        
-
         // Render a la vista
-        $router->render('auth/', [
-
+        $router->render('auth/mensaje', [
+            'titulo' => 'Cuenta Creada'
         ]);
     }
 
