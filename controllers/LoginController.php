@@ -64,8 +64,8 @@ class LoginController {
         }
 
         // Render a la vista
-        $router->render('auth/', [
-
+        $router->render('auth/reestablecer', [
+            'titulo' => 'Reestablecer Password'
         ]);
     }
 
