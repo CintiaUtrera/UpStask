@@ -6,12 +6,12 @@
 
         <div class="campo">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" />
+            <input type="text" name="nombre" id="nombre" value="<?php echo $usuario->nombre; ?>" />
         </div>
 
         <div class="campo">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email"  />
+            <input type="email" name="email" id="email" value="<?php echo $usuario->email; ?>" />
         </div>
 
         <div class="campo">
