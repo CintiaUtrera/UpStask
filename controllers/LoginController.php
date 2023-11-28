@@ -77,11 +77,10 @@ class LoginController {
     }
 
     public static function confirmar(Router $router){
-        
 
         // Render a la vista
-        $router->render('auth/', [
-
+        $router->render('auth/confirmar', [
+            'titulo' => 'Confirma tu Cuenta'
         ]);
     }
 
