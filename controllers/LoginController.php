@@ -44,8 +44,20 @@ class LoginController {
                     Usuario::setAlerta('error', 'el usuario ya esta registrado');
                     $alertas = Usuario::getAlertas();
                 } else{
-                    // crear nuevo usuario
+                    // Hashear password
+                    $usuario->hashPassword();
+
+                    //elimiinar password2
+                    unset($usuario->password2);
+
+                    //Generar el token
+                    $usuario->crearToken();
                     
+                    // crear nuevo usuario
+                    $resultado = $usuario->guardar();
+                    if($resultado){
+                        header('Location: /mensaje');
+                    }
                 }
             }
         }
@@ -93,12 +105,13 @@ class LoginController {
     }
 
     public static function confirmar(Router $router){
-
         // Render a la vista
         $router->render('auth/confirmar', [
             'titulo' => 'Confirma tu Cuenta'
         ]);
     }
+
+
 
 }
 
