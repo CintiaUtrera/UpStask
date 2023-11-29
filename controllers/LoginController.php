@@ -19,7 +19,7 @@ class LoginController {
         ]);
     }
 
-
+    // Funcion LOGOUT
     public static function logout(Router $router){
     
 
@@ -29,7 +29,7 @@ class LoginController {
         ]);
     }
 
-
+    // Funcion CREAR
     public static function crear(Router $router){
         
         $usuario = new Usuario;
