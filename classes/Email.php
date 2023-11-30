@@ -35,7 +35,7 @@ class Email {
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->email . "</strong>Has Creado tu cuenta en Uptask, solo debes confirmarla en el siguiente enlace</p>";
+        $contenido .= "<p><strong>Hola " . $this->email . "</strong> Has Creado tu cuenta en Uptask, solo debes confirmarla en el siguiente enlace</p>";
         $contenido .= "<p>Presiona Aquí: <a href='http://localhost:3000/confirmar?token=" . $this->token . "'>Confirmar cuenta</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
