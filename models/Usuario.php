@@ -65,7 +65,14 @@ class Usuario extends ActiveRecord{
 
         // valida el password
         public function validarPassword(){
+            if(strlen($this->password) < 6){
+                self::$alertas['error'][] = 'el password debe contener al menos 6 caracteres';
+            }
+            if($this->password !== $this->password2){
+                self::$alertas['error'][] = 'los password son diferentes';
             
+            }
+            return self::$alertas;
         }
 
         //Hashea el password
