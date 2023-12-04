@@ -94,7 +94,9 @@ class LoginController {
                     unset($usuario->password2);
                     // actualizar usuario
                     $usuario->guardar();
-
+                    // enviar el email
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email->enviarInstrucciones();
                     // imprimir alerta
                     Usuario::setAlerta('exito', 'Hemos enviado las instrucciones a tu email');
 
@@ -106,7 +108,7 @@ class LoginController {
         }
 
         $alertas = Usuario::getAlertas();
-        
+
         // Render a la vista
         $router->render('auth/olvide', [
             'titulo' => 'Olvide mi Password',
