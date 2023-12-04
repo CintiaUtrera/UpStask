@@ -63,6 +63,11 @@ class Usuario extends ActiveRecord{
         }
 
 
+        // valida el password
+        public function validarPassword(){
+            
+        }
+
         //Hashea el password
         public function hashPassword(){
             $this->password = password_hash($this->password, PASSWORD_BCRYPT);
