@@ -53,12 +53,10 @@ class LoginController {
 
     // Funcion LOGOUT
     public static function logout(Router $router){
-    
+        session_start();
+        $_SESSION = [];
 
-        // Render a la vista
-        $router->render('auth/', [
-
-        ]);
+        header('Location: /');
     }
 
     // Funcion CREAR
