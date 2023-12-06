@@ -1,6 +1,6 @@
 <?php
 
-namespace Proyecto;
+namespace Model;
 
 use Model\ActiveRecord;
 
@@ -14,5 +14,14 @@ class Proyecto extends ActiveRecord{
         $this->proyecto = $args['proyecto'] ?? ''; 
         $this->url = $args['url'] ?? '';
         $this->propietarioId = $args['propietarioId'] ?? '';
+    }
+
+
+    public function validarProyecto(){
+        if(!$this->proyecto){
+            self::$alertas['error'][] = 'el nombre del proyecto es obligatorio';
+
+        }
+        return self::$alertas;
     }
 }
