@@ -10,7 +10,7 @@
     bottom: 0;
 
     .formulario{
-        min-width: 60rem;
+        max-width: 60rem;
         background-color: v.$blanco;
         padding: 2rem;
         margin: 0 auto;
@@ -52,5 +52,5 @@
             transform: translateY(-200%);
             opacity: 0;
         }
-        }
+    }
 }
