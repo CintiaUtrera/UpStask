@@ -11,7 +11,8 @@ class TareaController{
 
     public static function crear(){
         if($_SERVER['REQUEST_MEETHOD'] === 'POST'){
-
+            
+            echo json_encode($_POST);
         }
     }
 
