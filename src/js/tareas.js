@@ -200,15 +200,33 @@
 
 
         function cambiarEstadoTarea(tarea){
-
             const nuevoEstado = tarea.estado === "1" ? "0" : "1";
             tarea.estado = nuevoEstado;
             actualizarTarea(tarea);
         }
 
 
-        function actualizarTarea(tarea){
-            
+        async function actualizarTarea(tarea){
+            const {estado, id, nombre, proyectoId} = tarea;
+
+            const datos = new FormData();
+            datos.append('id', id);
+            datos.append('estado', estado);
+            datos.append('nombre', nombre);
+            datos.append('proyectoId', obtenerProyecto());
+
+            try {
+                const url = 'http://localhost:3000/api/tarea/actualizar';
+                const respuesta = await fetch(url, {
+                    method: 'POST',
+                    body: datos
+                });
+                const resultado = await respuesta.json();
+                
+
+            } catch (error) {
+                console.log(error);
+            }
         }
 
 
