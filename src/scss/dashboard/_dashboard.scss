@@ -6,7 +6,7 @@
     background-color: v.$grisClaro;
 
     @include m.tablet{
-        display: flex;
+        display: flex; 
         height: 100vh;
     }
 
