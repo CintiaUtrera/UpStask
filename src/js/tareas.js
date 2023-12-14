@@ -23,6 +23,7 @@
     }
 
 
+
     function mostrarTareas(){
         limpiarTareas();
         if(tareas.length === 0) {
@@ -58,6 +59,9 @@
             btnEstadoTarea.classList.add(`${estados[tarea.estado].toLowerCase()}`)
             btnEstadoTarea.textContent = estados[tarea.estado];
             btnEstadoTarea.dataset.estadoTarea = tarea.estado;
+            btnEstadoTarea.ondblclick = function() {
+                cambiarEstadoTarea({...tarea});
+            }
 
             const btnElimiarTarea = document.createElement('BUTTON');
             btnElimiarTarea.classList.add('eliminar-tarea');
@@ -131,6 +135,7 @@
         }
 
 
+
         // Muestra un mensaje de interfez
         function mostrarAlerta(mensaje, tipo, referencia ){
             // previene la creacion de multiples alertas
@@ -149,6 +154,8 @@
                 alerta.remove();
             }, 5000);
         }
+
+
 
         //consultar el servidor para añadir una nueva tarea al proyecto actual
         async function agregarTarea(tarea){
@@ -188,6 +195,20 @@
             } catch (error) {
                 console.log(error);
             }
+        }
+
+
+
+        function cambiarEstadoTarea(tarea){
+
+            const nuevoEstado = tarea.estado === "1" ? "0" : "1";
+            tarea.estado = nuevoEstado;
+            actualizarTarea(tarea);
+        }
+
+
+        function actualizarTarea(tarea){
+            
         }
 
 
