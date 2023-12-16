@@ -56,7 +56,7 @@ class TareaController{
 
 
     public static function actualizar(){
-        if($_SERVER['REQUEST_MEETHOD'] === 'POST'){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             // validar que el proyecto exista
             $proyecto = Proyecto::where('url', $_POST['proyectoId']);

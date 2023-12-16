@@ -56,7 +56,7 @@
             // Botones
             const btnEstadoTarea = document.createElement('BUTTON');
             btnEstadoTarea.classList.add('estado-tarea');
-            btnEstadoTarea.classList.add(`${estados[tarea.estado].toLowerCase()}`)
+            btnEstadoTarea.classList.add(`${estados[tarea.estado].toLowerCase()}`);
             btnEstadoTarea.textContent = estados[tarea.estado];
             btnEstadoTarea.dataset.estadoTarea = tarea.estado;
             btnEstadoTarea.ondblclick = function() {
@@ -211,8 +211,8 @@
 
             const datos = new FormData();
             datos.append('id', id);
-            datos.append('estado', estado);
             datos.append('nombre', nombre);
+            datos.append('estado', estado);
             datos.append('proyectoId', obtenerProyecto());
 
             try {
@@ -226,6 +226,15 @@
                     mostrarAlerta(resultado.respuesta.mensaje, 
                         resultado.respuesta.tipo, 
                         document.querySelector('.contenedor-nueva-tarea'));
+            
+                tareas = tareas.map(tareaMemoria => {
+                    if(tareaMemoria.id === id){
+                        tareaMemoria.estado = estado;
+                    } 
+                    return tareaMemoria;
+                });
+                mostrarTareas();
+            
             }
             }catch (error) {
                 console.log(error);
