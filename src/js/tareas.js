@@ -5,7 +5,9 @@
 
     // Boton para mostrar el modal de agregar tareas 
     const nuevaTareaBtn = document.querySelector('#agregar-tarea');
-    nuevaTareaBtn.addEventListener('click', mostrarFormulario);
+    nuevaTareaBtn.addEventListener('click', function(){
+        mostrarFormulario();
+    });
 
     async function obtenerTareas(){
         try {
@@ -49,6 +51,9 @@
 
             const nombreTarea = document.createElement('P');
             nombreTarea.textContent = tarea.nombre;
+            nombreTarea.onclick = function() {
+                mostrarFormulario(editar = true, tarea);
+            }
 
             const opcionesDiv = document.createElement('DIV');
             opcionesDiv.classList.add('opciones');
@@ -84,18 +89,21 @@
 
 
 
-    function mostrarFormulario(){
+    function mostrarFormulario(editar = false, tarea = {}){
         const modal = document.createElement('DIV');
         modal.classList.add('modal');
         modal.innerHTML = `
             <form class="formulario nueva-tarea">
-                <legend>Añade una nueva tarea</legend>
+                <legend>${editar ? 'Editar Tarea' : 'Añade una nueva tarea'}</legend>
                 <div class="campo">
                     <label>Tarea</label>
-                    <input type="text" name="tarea" placeholder="Añadir tarea al proyecto" id="tarea" />
+                    <input type="text" name="tarea" placeholder="${tarea.nombre ? 'Edita la Tarea' : 'Añadir tarea al proyecto actual'}" id="tarea" value="${tarea.nombre ? tarea.nombre : ''}" />
                 </div>
                 <div class="opciones">
-                    <input type="submit" class="submit-nueva-tarea" value="Añadir Tarea" />
+                    <input type="submit" 
+                            class="submit-nueva-tarea"
+                            value="${tarea.nombre ? 'Guardar Cambios' : 'Añadir Tarea'}" 
+                            />
                     <button type="button" class="cerrar-modal">Cancelar</button>
                 </div>
             </form>
@@ -125,6 +133,7 @@
         document.querySelector('.dashboard').appendChild(modal);
     }
 
+
         function submitFormularioNuevaTarea(){
             const tarea = document.querySelector('#tarea').value.trim();
 
@@ -136,7 +145,6 @@
             }
             agregarTarea(tarea);
         }
-
 
 
         // Muestra un mensaje de interfez
