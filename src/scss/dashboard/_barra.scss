@@ -19,6 +19,9 @@
     .menu{
         img{
             width: .8rem;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 }

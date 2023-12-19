@@ -6,3 +6,5 @@
         <a class="<?php echo ($titulo === 'Perfil') ? 'activo' : ''; ?>" href="/perfil">Perfil</a>
     </nav>
 </aside>
+
+
