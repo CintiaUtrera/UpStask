@@ -18,7 +18,8 @@
     }
 
     .descripcion-pagina,
-    .formulario .campo input {
+    .formulario .campo input,
+    .nombre-pagina {
         color: darken(v.$grisClaro, 15%);
     }
 
@@ -29,4 +30,26 @@
     .alerta.error{
         background-color: v.$blanco;
     } 
+
+    .barra-mobile{
+        background-color: darken($grisOscuro, 7%);
+    }
+
+    .dashboard{
+        background-color: $grisOscuro;
+
+        .enlace{
+            color: v.$grisClaro;
+
+            &:hover{
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+    }
+
+    .listado-proyecto .proyecto{
+        background-color: lighten($grisOscuro, 20%);
+    }
+
+
 }
